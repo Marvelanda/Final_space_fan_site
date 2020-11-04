@@ -1,0 +1,16 @@
+<nav class="site-header sticky-top py-1">
+  <ul class="ncontainer d-flex flex-column flex-md-row justify-content-around">
+    <li class="py-2 d-none d-md-inline-block"><a href="/">Home</a></li>
+    {{#if username}}
+    <li class="py-2 d-none d-md-inline-block"><a href="/characters">Characters</a></li>
+    <li class="py-2 d-none d-md-inline-block"><a href="/locations">Locations</a></li>
+    <li class="py-2 d-none d-md-inline-block"><a href="/episodes">Episodes</a></li>
+    <li class="py-2 d-none d-md-inline-block"><a href="/discuss">Discuss</a></li>
+    <li class="py-2 d-none d-md-inline-block"><a href="/{{userId}}">Profile</a></li>
+    <li class="py-2 d-none d-md-inline-block"><a href="/users/logout">Log out</a></li>
+    {{else}}
+    <li class="py-2 d-none d-md-inline-block"><a href="/users/signup">Sign up</a></li>
+    <li class="py-2 d-none d-md-inline-block"><a href="/users/signin">Log in</a></li>
+    {{/if}}
+  </ul>
+</nav>

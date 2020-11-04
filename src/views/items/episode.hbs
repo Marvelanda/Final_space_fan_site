@@ -1,0 +1,18 @@
+<div class="episode">
+  <ul>
+    <img src="{{data.img_url}}" alt="">
+    <li>Name: {{data.name}}</li>
+    <li>Air date: {{data.air_date}}</li>
+    <li>Director: {{data.director}}</li>
+    <li>Inhabitants: {{data.director}}</li>
+
+    <li>Characters:
+      <ul>
+        {{#each data.characters}}
+        <li><a href="/characters/{{this.id}}">{{this.name}}</a></li>
+        {{/each}}
+      </ul>
+
+    </li>
+  </ul>
+</div>

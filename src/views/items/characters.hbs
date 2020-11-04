@@ -1,0 +1,9 @@
+<div class="list characters_list">
+  {{#each data}}
+  <div class="list--element characters_list--element">
+    <p><a href="/characters/{{this.id}}">{{this.name}}</a></p>
+    <img src="{{this.img_url}}" width="300px" alt="">
+  </div>
+
+  {{/each}}
+</div>

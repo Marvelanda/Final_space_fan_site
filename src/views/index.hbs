@@ -1,0 +1,21 @@
+<div class="container">
+  {{#if username}}
+  <form data-name="commonForm" action="/search">
+    <p>Please choose category:</p>
+    <select name="category">
+      <option>...Choose</option>
+      <option value="character">Character</option>
+      <option value="location">Location</option>
+      <option value="episode">Episode</option>
+    </select>
+
+    <input data-name="search" type="text" name="search" placeholder="Type-in a name, a location or an episode">
+    <button>Search</button>
+
+  </form>
+  {{else}}
+  <p>In order to start, please <a href="/users/signin">sign in</a></p>
+  <p>If you don't have an accoun yet, please <a href="/users/signup">sign up </a></p>
+  {{/if}}
+</div>
+<div data-name="resultsContainer" class="results"></div>

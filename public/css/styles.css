@@ -1,0 +1,62 @@
+body {
+  background-image: url('../img/adabacd1212abca.jpg');
+  background-position: left bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.list {
+  padding-left: 100px;
+  padding-right: 100px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list--element {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #636363;
+  border-radius: 20px;
+  box-shadow: inset rgba(255, 255, 255, 0.274) 8px 8px 18px 5px,
+    inset rgba(0, 0, 0, 0.5) -8px -8px 18px 5px;
+  height: fit-content;
+  margin: 20px;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.list--element:nth-of-type(2n + 1) {
+  margin-right: 10px;
+}
+
+.list--element p {
+  max-width: 300px;
+}
+
+.characters_list--element,
+.result_list--element {
+  height: 400px;
+}
