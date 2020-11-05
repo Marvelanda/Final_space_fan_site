@@ -1,5 +1,8 @@
 <div class="container main">
   {{#if username}}
+
+  <p data-name="errorMessage" class="error hidden">{{error}}</p>
+
   <form data-name="commonForm" action="/search">
     <p>Please choose category:</p>
     <div>

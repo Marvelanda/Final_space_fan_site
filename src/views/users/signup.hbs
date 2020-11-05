@@ -1,19 +1,22 @@
 <div class="d-flex justify-content-center element">
 
-  <form class="d-flex flex-column align-items-center element" method="POST" action="/users/signin">
-    <p>Log in</p>
+  <form class="d-flex flex-column align-items-center element" method="POST" action="/users/signup">
+    <p>Sign up</p>
 
     {{#if error}}
-    <p class="text-danger">{{error}}</p>
+    <p class="error">{{error}}</p>
     {{/if}}
 
+    <div class="form-group">
+      <input type="text" placeholder="Username" name="username" class="form-control">
+    </div>
     <div class="form-group">
       <input type="email" placeholder="Email" name="email" class="form-control">
     </div>
     <div class="form-group">
       <input type="password" placeholder="Password" name="password" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Log in</button>
+    <button type="submit" class="btn btn-primary">Sign up</button>
   </form>
 
 </div>

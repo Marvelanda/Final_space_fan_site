@@ -12,35 +12,45 @@ const serializeUser = (user) => {
 };
 
 const renderSignUp = (req, res) => {
-  res.render('signup');
+  res.render('users/signup');
 };
 
 const renderSignIn = (req, res) => {
-  res.render('signin');
+  res.render('users/signin');
 };
 
 const signUp = async (req, res) => {
   const { username, email, password } = req.body;
+  const findUser = await User.findOne({ email });
 
   if (username && email && password) {
-    try {
-      const hashPass = await bcrypt.hash(password, Number(salt));
+    if (!findUser) {
+      try {
+        const hashPass = await bcrypt.hash(password, Number(salt));
 
-      const newUser = new User({
-        username,
-        email,
-        password: hashPass,
+        const newUser = new User({
+          username,
+          email,
+          password: hashPass,
+        });
+        await newUser.save();
+
+        req.session.user = serializeUser(newUser);
+
+        res.redirect('/');
+      } catch (err) {
+        res.render('users/signup', {
+          error:
+            'Be carefull:\n 1. Username should be greater than 4 letters.\n 2. Password should be greater than 8 letters.',
+        });
+      }
+    } else {
+      res.render('users/signup', {
+        error: 'User already exists. Please log in.',
       });
-      await newUser.save();
-
-      req.session.user = serializeUser(newUser);
-
-      res.redirect('/');
-    } catch (err) {
-      res.render('signup', { error: 'User already exists' });
     }
   } else {
-    res.render('signup', { error: 'Please fill in all the fields' });
+    res.render('users/signup', { error: 'Please fill in all the fields' });
   }
 };
 
@@ -56,16 +66,20 @@ const signIn = async (req, res) => {
           req.session.user = serializeUser(user);
           res.redirect('/');
         } else {
-          res.render('signin', { error: 'Sorry! Wrong password or email.' });
+          res.render('users/signin', {
+            error: 'Sorry! Wrong password or email.',
+          });
         }
       } else {
-        res.render('signin', { error: 'No such a user, please sign up.' });
+        res.render('users/signin', {
+          error: 'No such a user, please sign up.',
+        });
       }
     } catch (err) {
-      res.redirect('signin');
+      res.redirect('/users/signin');
     }
   } else {
-    res.render('signin', { error: 'Please fill in all the fields' });
+    res.render('users/signin', { error: 'Please fill in all the fields' });
   }
 };
 
