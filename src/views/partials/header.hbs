@@ -1,16 +1,26 @@
-<nav class="site-header sticky-top py-1">
-  <ul class="ncontainer d-flex flex-column flex-md-row justify-content-around">
-    <li class="py-2 d-none d-md-inline-block"><a href="/">Home</a></li>
-    {{#if username}}
-    <li class="py-2 d-none d-md-inline-block"><a href="/characters">Characters</a></li>
-    <li class="py-2 d-none d-md-inline-block"><a href="/locations">Locations</a></li>
-    <li class="py-2 d-none d-md-inline-block"><a href="/episodes">Episodes</a></li>
-    <li class="py-2 d-none d-md-inline-block"><a href="/discuss">Discuss</a></li>
-    <li class="py-2 d-none d-md-inline-block"><a href="/{{userId}}">Profile</a></li>
-    <li class="py-2 d-none d-md-inline-block"><a href="/users/logout">Log out</a></li>
-    {{else}}
-    <li class="py-2 d-none d-md-inline-block"><a href="/users/signup">Sign up</a></li>
-    <li class="py-2 d-none d-md-inline-block"><a href="/users/signin">Log in</a></li>
-    {{/if}}
-  </ul>
-</nav>
+<header class="header">
+  <div class="container header-container">
+
+    <div class="logo">
+      <img src="/img/Final_Space_Logo.png" alt="icon" width="120px">
+    </div>
+    <nav>
+      <ul class="navigation-list">
+        <li class="navigation-list__item"><a href="/">Home</a></li>
+        {{#if username}}
+        <li class="navigation-list__item"><a href="/characters">Characters</a></li>
+        <li class="navigation-list__item"><a href="/locations">Locations</a></li>
+        <li class="navigation-list__item"><a href="/episodes">Episodes</a></li>
+        <li class="navigation-list__item"><a href="/discuss">Discuss</a></li>
+        <li class="navigation-list__item"><a href="/{{userId}}">Profile</a></li>
+        <li class="navigation-list__item"><a href="/users/logout">Log out</a></li>
+        {{else}}
+        <li class="navigation-list__item"><a href="/users/signup">Sign up</a></li>
+        <li class="navigation-list__item"><a href="/users/signin">Log in</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+
+  </div>
+
+</header>

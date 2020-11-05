@@ -44,6 +44,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: process.env.NODE_ENV === 'production',
+      maxAge: 7000 * 60 * 60 * 24,
     },
   })
 );

@@ -1,19 +1,22 @@
-<div class="character">
-  <ul>
-    <img src="{{data.img_url}}" alt="">
-    <li>Name: {{data.name}}</li>
-    <li>Status: {{data.status}}</li>
-    <li>Species: {{data.species}}</li>
-    <li>Gender: {{data.gender}}</li>
-    <li>Hair: {{data.hair}}</li>
-    <li>Origin: {{data.origin}}</li>
-    <li>Abilities:
-      <ul class="abilitites">
-        {{#each abilities}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul>
-
-    </li>
+<div class="container list">
+  <ul class="list--element item_list--element">
+    <div class="search_images">
+      <img src="{{data.img_url}}" alt="">
+    </div>
+    <div>
+      <li>Name: {{data.name}}</li>
+      <li>Status: {{data.status}}</li>
+      <li>Species: {{data.species}}</li>
+      <li>Gender: {{data.gender}}</li>
+      <li>Hair: {{data.hair}}</li>
+      <li>Origin: {{data.origin}}</li>
+      <li>Abilities:
+        <ul class="abilitites">
+          {{#each abilities}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </li>
+    </div>
   </ul>
 </div>
