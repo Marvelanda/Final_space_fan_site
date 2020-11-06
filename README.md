@@ -24,6 +24,6 @@ In order to dicuss TV show it is possible to go to a small discussion forum:
 
 ![alt text](public/screenshots/discussion_forum_themes.png 'Discussion themes')
 
-Adding files or smiles is available. Posts are added via AJAX. 
+Adding files or emojies is available. Posts are added via AJAX. 
 
 ![alt text](public/screenshots/posts.png)
