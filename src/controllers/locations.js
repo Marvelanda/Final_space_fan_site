@@ -2,7 +2,9 @@ const fetch = require('node-fetch');
 
 const renderAllLocations = async (req, res) => {
   const URI = `https://finalspaceapi.com/api/v0/location/`;
+
   const response = await fetch(URI);
+  console.log(response);
   const data = await response.json();
 
   res.render('items/locations', { data });

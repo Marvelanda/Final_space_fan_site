@@ -8,10 +8,15 @@
       <ul>
         {{#each posts}}
         <hr>
-        <li class="post">{{this.text}}
-          {{#if this.file}}
-          <img src="{{this.file}}" width="300px">
-          {{/if}}
+        <li class="post">
+          <p>{{this.author.username}}</p>
+          <div>
+            <p>{{this.text}}</p>
+            {{#if this.file}}
+            <img src="{{this.file}}" width="300px">
+            {{/if}}
+          </div>
+          <p class="date">{{this.date}}</p>
         </li>
         <hr>
         {{/each}}

@@ -1,20 +1,26 @@
-<div class="container section-content background_all_pages">
+<div class="container section-content background_all_pages themes_container">
   <h5 class="text">Final Space Forum</h5>
-  <div class="background_all_pages">
-    <p class="add">
-      <a href="/community/divisions/{{divisionId}}/themes/new">+Add new</a>
-    </p>
-    <ul class="forum_inline">
+  <div class="shadows">
+    <div class="themes_pointers">
+      <p>
+        <a href="/community/divisions">Back</a>
+      </p>
+      <p class="add">
+        <a href="/community/divisions/{{divisionId}}/themes/new">+Add new</a>
+      </p>
+    </div>
+
+    <ul class="forum_inline themes_header">
       <li class="theme">Theme</li>
-      <li>Answers</li>
-      <li>Author</li>
+      <li class="theme">Answers</li>
+      <li class="theme">Author</li>
     </ul>
     {{#each themes}}
     <div class="forum_line">
       <ul class="forum_inline">
         <li class="theme"><a href="/community/themes/{{this.id}}">{{this.title}}</a></li>
-        <li>{{this.answerCount}}</li>
-        <li>{{this.author.username}}</li>
+        <li class="theme">{{this.answerCount}}</li>
+        <li class="theme">{{this.author.username}}</li>
       </ul>
     </div>
     {{/each}}

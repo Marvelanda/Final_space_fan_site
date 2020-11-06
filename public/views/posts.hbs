@@ -1,0 +1,10 @@
+<li class="post">
+  <p>{{results.user}}</p>
+  <div>
+    <p>{{results.post.text}}</p>
+    {{#if results.post.file}}
+    <img src="{{results.post.file}}" width="300px">
+    {{/if}}
+  </div>
+  <p class="date">{{results.post.date}}</p>
+</li>

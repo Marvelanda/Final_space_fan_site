@@ -1,9 +1,12 @@
-<div class="container section-content background_all_pages">
-  <h5>Final Space Forum</h5>
-  <div class="background_all_pages">
+<div class="container section-content background_all_pages divisions_container">
+  <h5 class="text">Final Space Forum</h5>
+
+  <div class="background_all_pages shadows">
     <ul>
       {{#each divisions}}
-      <li><a href="/community/divisions/{{this.id}}">{{this.title}}</a></li>
+      <hr>
+      <li class="divisions"><a href="/community/divisions/{{this.id}}">{{this.title}}</a></li>
+      <hr>
       {{/each}}
     </ul>
   </div>

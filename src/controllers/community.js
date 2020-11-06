@@ -21,7 +21,7 @@ const showThemePosts = async (req, res) => {
   const posts = await theme.showThemePosts();
 
   const smiles = await Smile.find();
-  console.log(posts);
+
   res.render('community/posts/posts', {
     posts,
     smiles,
@@ -36,10 +36,25 @@ const renderNewThemeForm = async (req, res) => {
   res.render('community/newThemes', { smiles, divisionId: req.params.id });
 };
 
+const formatDate = () => {
+  const d = new Date();
+  const formatDate =
+    ('0' + d.getDate()).slice(-2) +
+    '.' +
+    ('0' + (d.getMonth() + 1)).slice(-2) +
+    '.' +
+    d.getFullYear() +
+    ' ' +
+    ('0' + d.getHours()).slice(-2) +
+    ':' +
+    ('0' + d.getMinutes()).slice(-2) +
+    ':' +
+    ('0' + d.getSeconds()).slice(-2);
+  return formatDate;
+};
+
 const addNewTheme = async (req, res) => {
   const { title, postText } = req.body;
-  let { path } = req.file;
-  path = path.replace('public', '');
 
   const theme = new Theme({
     title,
@@ -50,9 +65,15 @@ const addNewTheme = async (req, res) => {
 
   await theme.save();
 
-  if (postText & path) {
+  let path;
+  if (req.file) {
+    path = req.file.path;
+    path = path.replace('public', '');
+  }
+
+  if (postText && path) {
     const post = new Post({
-      date: new Date(),
+      date: formatDate(),
       text: postText,
       author: res.locals.userId,
       theme,
@@ -63,10 +84,10 @@ const addNewTheme = async (req, res) => {
     });
     await post.save();
 
-    res.redirect(`/community/divisions/${req.params.id}`);
+    res.redirect(`/community/themes/${theme._id}`);
   } else if (postText) {
     const post = new Post({
-      date: new Date(),
+      date: formatDate(),
       text: postText,
       author: res.locals.userId,
       theme,
@@ -76,10 +97,10 @@ const addNewTheme = async (req, res) => {
     });
     await post.save();
 
-    res.redirect(`/community/divisions/${req.params.id}`);
+    res.redirect(`/community/themes/${theme._id}`);
   } else if (path) {
     const post = new Post({
-      date: new Date(),
+      date: formatDate(),
       author: res.locals.userId,
       theme,
       page: 1,
@@ -89,7 +110,7 @@ const addNewTheme = async (req, res) => {
     });
 
     await post.save();
-    res.redirect(`/community/divisions/${req.params.id}`);
+    res.redirect(`/community/themes/${theme._id}`);
   } else {
     res.render('community/newThemes');
   }
@@ -97,16 +118,18 @@ const addNewTheme = async (req, res) => {
 
 const addNewPost = async (req, res) => {
   const { postText } = req.body;
-  let { path } = req.file;
-  path = path.replace('public', '');
 
   const theme = req.params.id;
   const findTheme = await Theme.findById(theme);
+  let path;
+  if (req.file) {
+    path = req.file.path;
+    path = path.replace('public', '');
+  }
 
-  console.log(path);
-  if (postText & path) {
+  if (postText && path) {
     const post = new Post({
-      date: new Date(),
+      date: formatDate(),
       text: postText,
       author: res.locals.userId,
       theme,
@@ -120,10 +143,11 @@ const addNewPost = async (req, res) => {
     findTheme.answerCount++;
     await findTheme.save();
 
-    res.json(post);
+    post.user = res.locals.username;
+    res.json({ post, user: post.user });
   } else if (postText) {
     const post = new Post({
-      date: new Date(),
+      date: formatDate(),
       text: postText,
       author: res.locals.userId,
       theme,
@@ -136,10 +160,11 @@ const addNewPost = async (req, res) => {
     findTheme.answerCount++;
     await findTheme.save();
 
-    res.json(post);
+    post.user = res.locals.username;
+    res.json({ post, user: post.user });
   } else if (path) {
     const post = new Post({
-      date: new Date(),
+      date: formatDate(),
       author: res.locals.userId,
       theme,
       page: 1,
@@ -151,8 +176,9 @@ const addNewPost = async (req, res) => {
 
     findTheme.answerCount++;
     await findTheme.save();
+    post.user = res.locals.username;
 
-    res.json(post);
+    res.json({ post, user: post.user });
   } else {
     //prettier-ignore
     res.json({ error: 'You\'re trying to send the blank message. PLease write smth :)' });

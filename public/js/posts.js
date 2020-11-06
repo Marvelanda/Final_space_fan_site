@@ -3,6 +3,15 @@ const textArea = document.querySelector('[data-name="postText"]');
 const postContainer = document.querySelector('[data-name="postContainer"]');
 const file = document.querySelector('.file');
 
+const renderPostTemplate = async (results) => {
+  const hbsRes = await fetch('/views/posts.hbs');
+
+  const hbs = await hbsRes.text();
+  const hbsTemplate = Handlebars.compile(hbs);
+  console.log(results);
+  return hbsTemplate({ results });
+};
+
 postForm.addEventListener('submit', async (evt) => {
   evt.preventDefault();
 
@@ -16,19 +25,20 @@ postForm.addEventListener('submit', async (evt) => {
   });
 
   const data = await response.json();
+  if (!data.error) {
+    const result = await renderPostTemplate(data);
+    const container = postContainer.querySelector('ul');
+    container.insertAdjacentHTML('beforeend', result);
+  } else {
+    const element = document.createElement('p');
 
-  const element = document.createElement('li');
-  element.textContent = textArea.value;
-  postContainer.appendChild(element);
-  smilesContainer.classList.add('hidden');
-  smilesContainer.classList.remove('flex');
-
-  if (data.file) {
-    const img = document.createElement('img');
-    img.src = data.file;
-    img.style.width = '300px';
-    element.appendChild(img);
+    element.classList.add('error');
+    element.innerHTML = data.error;
+    postForm.before(element);
   }
 
-  textArea.value = '';
+  postForm.reset();
+
+  smilesContainer.classList.add('hidden');
+  smilesContainer.classList.remove('flex');
 });
