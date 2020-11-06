@@ -6,10 +6,10 @@ Deployed on Heroku - https://final-space-fun-site.herokuapp.com/.
 Stack - html, css, nodejs, express, mongodb, handlebars.
 Used the following API - https://finalspaceapi.com/docs/.
 
-In order to check the site you can log in as mike@gmail.com with password 123456789.
+In order to check the site you can log in as mike@gmail.com with a password 123456789.
 Signing up is also working.
 
-After signin you will come to the main page where search characters, episodes or locations:
+After signin you will come to the main page where it is possible to search characters, episodes or locations:
 
 ![alt text](public/screenshots/search.png)
 
@@ -24,6 +24,6 @@ In order to dicuss TV show it is possible to go to a small discussion forum:
 
 ![alt text](public/screenshots/discussion_forum_themes.png 'Discussion themes')
 
-It is possible to add file or smiles to posts. Posts are added via AJAX. 
+Adding files or smiles is available. Posts are added via AJAX. 
 
 ![alt text](public/screenshots/posts.png)
