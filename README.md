@@ -3,11 +3,11 @@
 Final Space fun site with a small discussion forum.
 
 Deployed on Heroku - https://final-space-fun-site.herokuapp.com/.
-Stack - html, css, nodejs, express, mongodb, handlebars.
+Stack - html, css, javascript, nodejs, express, mongodb, handlebars.
 Used the following API - https://finalspaceapi.com/docs/.
 
 In order to check the site you can log in as mike@gmail.com with a password 123456789.
-Signing up is also working.
+Sign up also works.
 
 After signin you will come to the main page where it is possible to search characters, episodes or locations:
 
