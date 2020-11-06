@@ -146,15 +146,10 @@ h6,
   margin-top: 70px;
 }
 
-.error {
-  color: rgb(163, 15, 15);
-}
-
 .section-content {
-  margin-top: 50px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: 50px 100px 10px;
   padding-top: 20px;
+  padding-bottom: 20px;
   box-shadow: 0px 0px 50px 0px rgb(105, 84, 105);
 }
 
@@ -197,9 +192,14 @@ h6,
   padding: 10px;
 }
 
-.category_input {
+.category_input,
+.welcome {
   width: 500px;
   padding: 7px 20px;
+}
+
+.welcome {
+  text-align: center;
 }
 
 .list--element:nth-of-type(2n + 1) {
@@ -251,7 +251,6 @@ h6,
 
 .themes_header {
   text-transform: uppercase;
-  color: rgb(10, 8, 138);
 }
 
 .forum_line {
