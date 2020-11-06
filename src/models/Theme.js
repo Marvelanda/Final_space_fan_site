@@ -12,8 +12,9 @@ const themeSchema = new mongoose.Schema({
 
 themeSchema.methods.showThemePosts = async function () {
   const posts = await this.model('Post')
-    .find({ division: this._id })
+    .find({ theme: this._id })
     .populate('author');
+
   return posts;
 };
 

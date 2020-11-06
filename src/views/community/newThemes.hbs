@@ -1,0 +1,26 @@
+<div>
+  <p>Add new theme</p>
+
+  {{#if error}}
+  <p class="text-danger">{{error}}</p>
+  {{/if}}
+
+
+  <form enctype="multipart/form-data" data-name="postTheme" class="post_text" action="/community/divisions/{{divisionId}}/themes" method="POST">
+    <div class="form-group">
+      <input type="text" placeholder="Theme title" name="title" required>
+    </div>
+    <ul data-name="smilesContainer" class="smiles_container hidden">
+      {{#each smiles}}
+      <li id="{{this._id}}">{{this.image}}</li>
+      {{/each}}
+    </ul>
+    <textarea name="postText" data-name="postText" cols="68" rows="5" placeholder="Add post text"></textarea>
+    <div class="under_text">
+      <div class="forum-icons">
+        <p data-name="smile" class="smiles">&#128512;</p>
+        <input class="file" type="file" name="file">
+      </div>
+      <button class="btn btn-info btn-lg">Post new theme</button>
+  </form>
+</div>

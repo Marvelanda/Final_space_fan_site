@@ -1,31 +1,23 @@
 <div class="container section-content background_all_pages community">
   <h5 class="text">Final Space Forum</h5>
+
   <div class="community_container">
+    <div><a href="/community/divisions/{{divisionId}}">Back</a></div>
     <h6>{{themeTitle}}</h6>
     <div data-name="postContainer" class="posts_container">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores temporibus, numquam molestias nulla deserunt perspiciatis eos rem excepturi sit iste delectus enim in earum repudiandae.
-        Molestias recusandae qui pariatur dignissimos!</p>
-      {{#each posts}}
-      <ul class="forum_inline">
-        <li class="post">{{this.text}}</li>
+      <ul>
+        {{#each posts}}
+        <hr>
+        <li class="post">{{this.text}}
+          {{#if this.file}}
+          <img src="{{this.file}}" width="300px">
+          {{/if}}
+        </li>
+        <hr>
+        {{/each}}
       </ul>
-      {{/each}}
     </div>
-    <form data-name="postForm" class="post_text" action="/community/posts/new" method="POST">
+    <form enctype="multipart/form-data" data-name="postForm" class="post_text" action="/community/themes/{{themeId}}/posts" method="POST">
       <ul data-name="smilesContainer" class="smiles_container hidden">
         {{#each smiles}}
         <li id="{{this._id}}">{{this.image}}</li>

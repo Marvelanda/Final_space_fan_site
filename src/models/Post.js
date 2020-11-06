@@ -5,9 +5,9 @@ const postSchema = new mongoose.Schema({
   text: String,
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   theme: { type: mongoose.Schema.Types.ObjectId, ref: 'Theme' },
-  likes: Number,
+  likes: { type: Number, default: 0 },
   page: { type: Number, default: 1 },
-  file: Buffer,
+  file: String,
 });
 
 module.exports = mongoose.model('Post', postSchema);

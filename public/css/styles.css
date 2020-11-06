@@ -51,7 +51,7 @@ h1,
 .background_all_pages {
   height: fit-content;
   width: fit-content;
-  background-color: rgb(148, 131, 163);
+  background-color: rgb(131, 134, 163);
   border-radius: 10px;
 }
 
@@ -213,7 +213,7 @@ h1,
 .forum_inline {
   display: flex;
   justify-content: space-between;
-  width: 700px;
+  width: 670px;
 }
 
 .theme {
@@ -230,6 +230,7 @@ h1,
 }
 
 .posts_container {
+  height: 450px;
   max-height: 63vh;
   border: 2px solid rgb(45, 0, 75);
   overflow-y: auto;
@@ -280,6 +281,10 @@ h1,
   display: flex;
 }
 
-input[type='file'] {
-  color: transparent;
+.post {
+  overflow-wrap: break-word;
 }
+
+/* input[type='file'] {
+  color: transparent;
+} */
