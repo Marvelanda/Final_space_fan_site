@@ -1,30 +1,35 @@
-<div class="container main">
-  {{#if username}}
+<div class="container section-content background_all_pages">
+  <h1>Welcome to the Final Space Wiki</h1>
+  <div class="container main">
 
-  <p data-name="errorMessage" class="error hidden">{{error}}</p>
+    {{#if username}}
 
-  <form data-name="commonForm" action="/search">
-    <p>Please choose category:</p>
-    <div>
-      <select class="category" name="category">
-        <option>...Choose</option>
-        <option value="character">Character</option>
-        <option value="location">Location</option>
-        <option value="episode">Episode</option>
-      </select>
+    <p data-name="errorMessage" class="error hidden">{{error}}</p>
 
-      <input class="category_input" data-name="search" type="text" name="search" placeholder="A name, a location or an episode">
-      <button class="align-self-center btn btn-info btn-lg">Search</button>
+    <form data-name="commonForm" action="/search">
+      <p>Please choose category:</p>
+      <div>
+        <select class="category" name="category">
+          <option>...Choose</option>
+          <option value="character">Character</option>
+          <option value="location">Location</option>
+          <option value="episode">Episode</option>
+        </select>
+
+        <input class="category_input" data-name="search" type="text" name="search" placeholder="A name, a location or an episode">
+        <button class="align-self-center btn btn-info btn-lg">Search</button>
+      </div>
+
+
+    </form>
+    {{else}}
+    <div class="element">
+      <p>In order to start, please <a href="/users/signin">sign in</a></p>
+      <p>If you don't have an accoun yet, please <a href="/users/signup">sign up </a></p>
     </div>
 
-
-  </form>
-  {{else}}
-  <div class="element">
-    <p>In order to start, please <a href="/users/signin">sign in</a></p>
-    <p>If you don't have an accoun yet, please <a href="/users/signup">sign up </a></p>
+    {{/if}}
   </div>
+  <div data-name="resultsContainer" class="results"></div>
 
-  {{/if}}
 </div>
-<div data-name="resultsContainer" class="results"></div>

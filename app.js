@@ -12,6 +12,7 @@ const usersRoute = require('./src/routes/users');
 const charactersRoute = require('./src/routes/characters');
 const locationsRoute = require('./src/routes/locations');
 const episodesRoute = require('./src/routes/episodes');
+const communityRoute = require('./src/routes/community');
 
 const dbConnect = require('./src/config/db');
 
@@ -55,9 +56,12 @@ app.use('/users', usersRoute);
 app.use('/characters', isAuth, charactersRoute);
 app.use('/locations', isAuth, locationsRoute);
 app.use('/episodes', isAuth, episodesRoute);
+app.use('/community', isAuth, communityRoute);
+
+app.use((req, res) => {
+  res.render('404');
+});
 
 app.listen(PORT, () => {
   console.log('Server has been started on port: ', PORT);
 });
-
-// require('crypto').randomBytes(64).toString('hex')

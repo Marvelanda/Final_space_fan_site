@@ -1,7 +1,7 @@
 <div class="container list">
   <ul class="list--element item_list--element">
     <div class="search_images">
-      <img src="{{data.img_url}}" alt="">
+      <img src="{{data.img_url}}" alt="" width="400px">
     </div>
     <div>
       <li>Name: {{data.name}}</li>
@@ -12,7 +12,7 @@
       <li>Characters:
         <ul>
           {{#each data.characters}}
-          <li><a href="/characters/{{this.id}}">{{this.name}}</a></li>
+          <li><a href="/characters/{{id}}">{{this.name}}</a></li>
           {{/each}}
         </ul>
       </li>

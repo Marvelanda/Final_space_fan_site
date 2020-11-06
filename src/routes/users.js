@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const usersController = require('../controllers/users');
+const isProfileOwner = require('../middleware/profileowmer');
 
 router
   .route('/signup')
@@ -14,5 +15,7 @@ router
   .post(usersController.signIn);
 
 router.get('/logout', usersController.logOut);
+
+router.get('/:id', isProfileOwner, usersController.showProfile);
 
 module.exports = router;

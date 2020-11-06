@@ -1,0 +1,22 @@
+<div class="container section-content background_all_pages">
+  <h5 class="text">Final Space Forum</h5>
+  <div class="background_all_pages">
+    <p class="add">
+      <a href="/community/posts/new">+Add new</a>
+    </p>
+    <ul class="forum_inline">
+      <li class="theme">Theme</li>
+      <li>Answers</li>
+      <li>Author</li>
+    </ul>
+    {{#each themes}}
+    <div class="forum_line">
+      <ul class="forum_inline">
+        <li class="theme"><a href="/community/themes/{{this.id}}">{{this.title}}</a></li>
+        <li>{{this.answerCount}}</li>
+        <li>{{this.author.username}}</li>
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+</div>

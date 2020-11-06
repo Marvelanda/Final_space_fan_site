@@ -83,6 +83,10 @@ const signIn = async (req, res) => {
   }
 };
 
+const showProfile = (req, res) => {
+  res.render('users/profile');
+};
+
 const logOut = (req, res) => {
   req.session.destroy(function (err) {
     if (err) throw new Error(err);
@@ -96,5 +100,6 @@ module.exports = {
   renderSignIn,
   signUp,
   signIn,
+  showProfile,
   logOut,
 };
