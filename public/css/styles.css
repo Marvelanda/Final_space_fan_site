@@ -9,6 +9,7 @@ body {
 
 * {
   box-sizing: border-box;
+  color: black;
 }
 
 ul {
@@ -37,13 +38,22 @@ h5,
 h6 {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  color: rgb(10, 8, 138);
 }
 
 li,
 p,
 a {
   font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.blue {
+  color: rgb(10, 8, 138);
 }
 
 .search_images img {
@@ -145,7 +155,6 @@ a {
   margin-left: 100px;
   margin-right: 100px;
   padding-top: 20px;
-  padding-bottom: 360px;
   box-shadow: 0px 0px 50px 0px rgb(105, 84, 105);
 }
 
@@ -162,11 +171,6 @@ a {
 .main {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  background: #636363;
-  border-radius: 20px;
-  box-shadow: inset rgba(255, 255, 255, 0.274) 8px 8px 18px 5px,
-    inset rgba(0, 0, 0, 0.5) -8px -8px 18px 5px;
   height: fit-content;
   margin: 20px;
   width: fit-content;
@@ -180,8 +184,6 @@ a {
   border-radius: 20px;
   box-shadow: inset rgba(255, 255, 255, 0.274) 8px 8px 18px 5px,
     inset rgba(0, 0, 0, 0.5) -8px -8px 18px 5px;
-  height: fit-content;
-  margin: 20px;
 }
 
 .main {

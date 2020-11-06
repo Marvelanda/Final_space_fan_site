@@ -1,15 +1,13 @@
 <div class="container list">
-  <ul class="list--element item_list--element">
+  <ul class="list--element item_list--element shadows">
     <div class="search_images">
       <img src="{{data.img_url}}" alt="" width="400px">
     </div>
     <div>
-      <li>Name: {{data.name}}</li>
-      <li>Air date: {{data.air_date}}</li>
-      <li>Director: {{data.director}}</li>
-      <li>Inhabitants: {{data.director}}</li>
-
-      <li>Characters:
+      <li><span class="blue">Name</span>: {{data.name}}</li>
+      <li><span class="blue">Air date</span>: {{data.air_date}}</li>
+      <li><span class="blue">Director</span>: {{data.director}}</li>
+      <li><span class="blue">Characters</span>:
         <ul>
           {{#each data.characters}}
           <li><a href="/characters/{{id}}">{{this.name}}</a></li>

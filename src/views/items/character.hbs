@@ -1,16 +1,16 @@
 <div class="container list">
-  <ul class="list--element item_list--element">
+  <ul class="list--element item_list--element shadows">
     <div class="search_images">
       <img src="{{data.img_url}}" alt="">
     </div>
     <div>
-      <li><b>Name</b>: {{data.name}}</li>
-      <li><b>Status</b>: {{data.status}}</li>
-      <li><b>Species</b>: {{data.species}}</li>
-      <li><b>Gender</b>: {{data.gender}}</li>
-      <li><b>Hair</b>: {{data.hair}}</li>
-      <li><b>Origin</b>: {{data.origin}}</li>
-      <li><b>Abilities</b>:
+      <li><span class="blue">Name</span>: {{data.name}}</li>
+      <li><span class="blue">Status</span>: {{data.status}}</li>
+      <li><span class="blue">Species</span>: {{data.species}}</li>
+      <li><span class="blue">Gender</span>: {{data.gender}}</li>
+      <li><span class="blue">Hair</span>: {{data.hair}}</li>
+      <li><span class="blue">Origin</span>: {{data.origin}}</li>
+      <li><span class="blue">Abilities</span>:
         {{#if abilities}}
         <ul class="abilitites">
           {{#each abilities}}
