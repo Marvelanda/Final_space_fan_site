@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "production": "cross-env NODE_ENV=production node app.js",
-    "start": "node app.js",
+    "start": "cross-env NODE_ENV=production node server",
     "dev": "nodemon --ignore './sessions/' app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
