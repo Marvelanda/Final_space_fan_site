@@ -299,15 +299,22 @@ h6,
 
 .posts_container {
   height: 450px;
-  width: inherit;
   max-height: 63vh;
   border: 2px solid rgb(45, 0, 75);
   overflow-y: auto;
 }
+.text_area,
+.posts_container,
+.post_text {
+  width: 670px;
+}
+
+.text_area {
+  height: 150px;
+}
 
 .post_text {
   margin-top: 5px;
-  width: inherit;
   position: sticky;
   margin-bottom: 7px;
 }
