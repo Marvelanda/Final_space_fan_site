@@ -1,6 +1,6 @@
-# Final_space_fun_site
+# Final_space_fan_site
 
-Final Space fun site with a small discussion forum.
+Final Space fan site with a small discussion forum.
 
 Deployed on Heroku - https://final-space-fun-site.herokuapp.com/.
 Stack - html, css, javascript, nodejs, express, mongodb, handlebars.
